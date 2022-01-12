@@ -1,0 +1,30 @@
+{
+  "pool": {
+    "name": "POOL",
+    "lanes_number": 5,
+    "work_hours": {
+      "monday": {
+        "open": [8, 0], "close":  [21, 0]},
+      "tuesday": {
+        "open": [8, 0], "close":  [21, 0]},
+      "wednesday": {
+        "open": [8, 0], "close":  [21, 0]},
+      "thursday": {
+        "open": [8, 0], "close":  [21, 0]},
+      "friday": {
+        "open": [8, 0], "close":  [21, 0]},
+      "saturday": {
+        "open": [8, 0], "close":  [21, 0]},
+      "sunday": {
+        "open": [8, 0], "close":  [21, 0]}
+    },
+    "price_list": {
+      "swimming_schools": {
+
+      },
+      "individual_customers": {
+
+      }
+    }
+  }
+}
