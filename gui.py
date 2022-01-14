@@ -1,9 +1,9 @@
 import sys
 from PySide2.QtUiTools import QUiLoader
-from PySide2 import QtWidgets, QMainWindow
+from PySide2 import QtWidgets #, QMainWindow
 from PySide2.QtWidgets import QApplication, QDialog, QTableWidget
 from ui_pool import Ui_MainWindow
-from swimming_pool import SwimmingPool
+
 
 
 class SwimmingPoolWindow(QMainWindow):

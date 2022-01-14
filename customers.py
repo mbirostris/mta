@@ -1,5 +1,3 @@
-from booking import Booking
-from datetime import datetime
 
 
 class Customer:
