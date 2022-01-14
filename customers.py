@@ -1,41 +1,33 @@
-from calendar import Calendar
-from datetime import datetime
+
+
+class CustomerDatabase:
+    def __init__(self, database):
+        self._database = database
+
+    def set_database(self, customer):
+        self._database.append(customer)
 
 
 class Customer:
-    def __init__(self, name, hours):
+    def __init__(self, name, id_=None):
         self._name = name
-        self._hours = hours
+        self._id = id_
 
     def name(self):
         return self._name
 
-    def hours(self):
-        return self._hours
+    def id(self):
+        return self._id
 
-    def booking(self, year, month, day, hour, minute):
-        opr_date = datetime(year, month, day, hour, minute)
+    def check_database(self, database):
+        pass
 
 
 class IndividualCustomer(Customer):
-    def __init__(self, name, hours, lane_ticket):
-        super().__init__(name, hours)
-        self._lane_ticket = lane_ticket
-
-    def lane_ticket(self):
-        return self._lane_ticket
-
-    def booking(self, year, month, day, hour, minute):
-        super().booking(year, month, day, hour, minute)
+    def __init__(self, name, id_=None):
+        super().__init__(name, id_)
 
 
 class SwimmingSchool(Customer):
-    def __init__(self, name, hours, lane):
-        super().__init__(name, hours)
-        self._lane = lane
-
-    def lane(self):
-        return self._lane
-
-    def booking(self, year, month, day, hour, minute):
-        super().booking(year, month, day, hour, minute)
+    def __init__(self, name, id_=None):
+        super().__init__(name, id_)

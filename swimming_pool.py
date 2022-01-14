@@ -1,13 +1,8 @@
-from calendar import Calendar
-import json
-
-with open('data_config.json', 'r') as data_handle:
-    data = json.load(data_handle)
-    swimming_pool = SwimmingPool(data["name"], data["work_hours"], data["price_list"], data["lanes_number"])
+from booking_history import BookingHistory
 
 
-class SwimmingPool(Calendar):
-    def __init__(self, name, work_hours, price_list, lanes_number):
+class SwimmingPool(BookingHistory):
+    def __init__(self, name: str, work_hours: dict, price_list: dict, lanes_number: int):
         self._name = name
         self._work_hours = work_hours
         self._price_list = price_list
