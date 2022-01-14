@@ -1,9 +1,8 @@
 from booking_history import BookingHistory
-from work_hours import WorkHours
-#
+
 
 class SwimmingPool(BookingHistory):
-    def __init__(self, name, work_hours: WorkHours.work_hours_as_dict(), price_list, lanes_number):
+    def __init__(self, name: str, work_hours: dict, price_list: dict, lanes_number: int):
         self._name = name
         self._work_hours = work_hours
         self._price_list = price_list
