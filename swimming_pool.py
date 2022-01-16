@@ -1,4 +1,4 @@
-from booking_history import BookingHistory
+from reservations import BookingHistory
 
 
 class SwimmingPool(BookingHistory):

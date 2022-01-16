@@ -1,6 +1,5 @@
 from booking import Booking
 from customers import Customer, IndividualCustomer, SwimmingSchool
-from swimming_pool import SwimmingPool
 
 
 class BookingHistory:
@@ -12,9 +11,6 @@ class BookingHistory:
         client = booking.customer()
 
         self._booking_history[date] = client.customer_type(), client.name(), client.id()
-
-
-
 
     # def add_booking(self, booking: Booking):
     #     year = booking.year()

@@ -15,7 +15,7 @@ class Booking(Customer):
             lane: int = None
     ):
         self.set_customer(customer)
-        self.set_customer_type(customer_type)
+        self.set_customer_type()
         self._year = year
         self._month = month
         self._day = day
@@ -52,9 +52,14 @@ class Booking(Customer):
         return self._lane
 
     def set_customer(self, customer):
+
         self._customer = customer
 
-    def set_customer_type(self, customer_type):
+    def set_customer_type(self):
+        if isinstance(self.customer(), IndividualCustomer):
+            customer_type = "individual_customer"
+        elif isinstance(self.customer(), SwimmingSchool):
+            customer_type = "swimming_school"
         self._customer_type = customer_type
 
     def set_date(self, year, month, day, hour, minutes):
@@ -62,5 +67,7 @@ class Booking(Customer):
 
     def set_lane(self, lane):
         self._lane = lane
+
+
 
 
