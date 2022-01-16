@@ -1,28 +1,23 @@
 from csv import DictWriter
+from enum import Enum, auto
 
 
-class CustomerDatabase:
-    def __init__(self, database: list):
-        self._database = database
+class WrongCustomerTypeError(Exception):
+    def __init__(self):
+        super.__init__()
 
-    def database(self):
-        return self._database
 
-    def add_to_database(self, customer):
-        self._database.append = [customer.name(), customer.id(), customer.phoner_number()]
-
-    def csv_load_data(self):
-        with open("customers_database.csv", "a+") as handle:
-            writer = DictWriter(handle, ["name", "id", "phone_number"])
-            for customer in self.database():
-                writer.writerow(customer)
+class CustomerType(Enum):
+    INDIVIDUAL_CUSTOMER = auto
+    SWIMMING_SCHOOL = auto
 
 
 class Customer:
-    def __init__(self, name: str, id_: int, phone_number: str):
+    def __init__(self, name: str, id_: int, phone_number: str, type_: CustomerType):
         self._name = name
         self._id = id_
         self._phone_number = phone_number
+        self._type_ = type_
 
     def name(self):
         return self._name
@@ -33,6 +28,9 @@ class Customer:
     def phone_number(self):
         return self._phone_number
 
+    def type_(self):
+        return self._type_
+
     def set_id(self, next_id):
         self._id = next_id
 
@@ -40,50 +38,20 @@ class Customer:
         self._name = name
 
     def set_phone_number(self, phone_number):
-        self._phone_number
+        self._phone_number = phone_number
 
+    def set_type(self, type_):
+        if type_ not in CustomerType:
+            raise WrongCustomerTypeError
+        self._type_ = type_
 
-class IndividualCustomer(Customer):
-    def __init__(self, name, id_: int, phone_number: str):
-        super().__init__(name, id_, phone_number)
-
-    def name(self):
-        super().__init__()
-
-    def id(self):
-        super.__init__()
-
-    def phone_number(self):
-        super().__init__()
-
-    def set_name(self):
-        super.__init__()
-
-    def set_id(self):
-        super.__init__()
-
-    def set_phone_number(self):
-        super.__init__()
-
-
-class SwimmingSchool(Customer):
-    def __init__(self, name: str, id_: int, phone_number: str):
-        super().__init__(name, id_, phone_number)
-
-    def name(self):
-        super().__init__()
-
-    def id(self):
-        super.__init__()
-
-    def phone_number(self):
-        super().__init__()
-
-    def set_name(self):
-        super.__init__()
-
-    def set_id(self):
-        super.__init__()
-
-    def set_phone_number(self):
-        super.__init__()
+    def csv_load_data(self):
+        with open("customers_database.csv", "a+") as handle:
+            writer = DictWriter(handle, ["name", "id", "phone number", "customer type"])
+            customer = {
+                "name": self.name(),
+                "id": self.id(),
+                "phone number": self.phone_number(),
+                "customer type": self.type_()
+            }
+            writer.writerow(customer)

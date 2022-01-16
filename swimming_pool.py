@@ -2,7 +2,8 @@ from reservations import BookingHistory
 
 
 class SwimmingPool(BookingHistory):
-    def __init__(self, name: str, work_hours: dict, price_list: dict, lanes_number: int):
+    def __init__(self, name: str, work_hours: dict, price_list: dict, lanes_number: int, booking_history):
+        super.__init__(booking_history)
         self._name = name
         self._work_hours = work_hours
         self._price_list = price_list
