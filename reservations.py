@@ -1,6 +1,6 @@
 from booking import Booking
 from customers import CustomerType
-from swimming_pool import SwimmingPool
+import swimming_pool
 
 
 class BookingHistory:
@@ -40,8 +40,8 @@ class BookingHistory:
 
     def check_if_open(self, booking: Booking):
         opr_weekday = booking.date().isoweekday()
-        opn_hour = SwimmingPool.work_hours()[opr_weekday]["open"]
-        cls_hour = SwimmingPool.work_hours()[opr_weekday]["close"]
+        opn_hour = swimming_pool.SwimmingPool()[opr_weekday]["open"]
+        cls_hour = swimming_pool.SwimmingPool()[opr_weekday]["close"]
         if (cls_hour - opn_hour) > (booking.date() - opn_hour):
             return True
         else:
